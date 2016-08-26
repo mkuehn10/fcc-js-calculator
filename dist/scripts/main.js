@@ -1,0 +1,1 @@
+"use strict";$(function(){var e=function(){var e=this;e.queue=[],e.display=ko.observable(0),e.numberHandler=function(u,n){e.queue.push(parseInt(n.currentTarget.id)),e.parseNumber()},e.parseNumber=function(){var u=e.queue.length-1,n=0;e.queue.forEach(function(e){n+=e*Math.pow(10,u),u-=1}),e.display(n)}},u=new e;ko.applyBindings(u)});

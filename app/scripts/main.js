@@ -2,27 +2,28 @@
 
 $(function() {
 
-  var add = function(a, b) {
-    return a + b;
-  };
+  // var add = function(a, b) {
+  //   return a + b;
+  // };
 
-  var subtract = function(a, b) {
-    return a - b;
-  };
+  // var subtract = function(a, b) {
+  //   return a - b;
+  // };
 
-  var multiply = function(a, b) {
-    return a * b;
-  };
+  // var multiply = function(a, b) {
+  //   return a * b;
+  // };
 
-  var divide = function(a, b) {
-    return a / b;
-  };
+  // var divide = function(a, b) {
+  //   return a / b;
+  // };
 
   var ViewModel = function() {
-    console.log(add(1,2));
-    console.log(subtract(1,2));
-    console.log(multiply(1,2));
-    console.log(divide(4,2));
+    //console.log(add(1,2));
+    //console.log(subtract(1,2));
+    //console.log(multiply(1,2));
+    //console.log(divide(4,2));
+
 
     var self = this;
 
@@ -37,7 +38,7 @@ $(function() {
     };
 
     self.parseNumber = function() {
-      console.log("Parsing");
+      //console.log("Parsing");
       var powerOfTen = self.queue.length - 1;
       var currentNumber = 0;
       self.queue.forEach(function(number) {
@@ -45,7 +46,7 @@ $(function() {
 
         powerOfTen -= 1;
       });
-      console.log(currentNumber);
+      //console.log(currentNumber);
       self.display(currentNumber);
     };
   };

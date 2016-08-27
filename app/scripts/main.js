@@ -35,7 +35,7 @@ $(function() {
     self.operatorAllowed = ko.observable(false);
 
     self.numberHandler = function(event, data) {
-      console.log(operators.indexOf(data.currentTarget.id));
+      //console.log(operators.indexOf(data.currentTarget.id));
 
       if (operators.indexOf(data.currentTarget.id) == -1) {
         self.operatorAllowed(true);
@@ -44,12 +44,12 @@ $(function() {
       }
       self.queue.push(data.currentTarget.id);
 
-      console.log(self.queue[self.queue.length - 1]);
+      //console.log(self.queue[self.queue.length - 1]);
       //console.log(self.queue.join(''));
       self.display(self.queue.join(''));
     };
 
-    self.equalHandler = function(event, data) {
+    self.equalHandler = function() {
       //console.log(eval(self.queue.join('')));
       self.result(eval(self.queue.join('')).toString().substring(0,9));
       self.resultAllowed(true);

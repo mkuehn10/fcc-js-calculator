@@ -33,25 +33,26 @@ $(function() {
     self.result = ko.observable();
     self.resultAllowed = ko.observable(false);
     self.operatorAllowed = ko.observable(false);
+    self.decimalAllowed = ko.observable(true);
+    self.zeroAllowed = ko.observable(false);
 
     self.numberHandler = function(event, data) {
-      //console.log(operators.indexOf(data.currentTarget.id));
-
       if (operators.indexOf(data.currentTarget.id) == -1) {
         self.operatorAllowed(true);
       } else {
         self.operatorAllowed(false);
       }
-      self.queue.push(data.currentTarget.id);
-
-      //console.log(self.queue[self.queue.length - 1]);
-      //console.log(self.queue.join(''));
+      if (self.display() == 0 & data.currentTarget.id == '.') {
+        self.queue.push('0');
+        self.queue.push(data.currentTarget.id);
+      } else {
+        self.queue.push(data.currentTarget.id);
+      }
       self.display(self.queue.join(''));
     };
 
     self.equalHandler = function() {
-      //console.log(eval(self.queue.join('')));
-      self.result(eval(self.queue.join('')).toString().substring(0,9));
+      self.result(eval(self.queue.join('')).toString().substring(0, 9));
       self.resultAllowed(true);
     };
 

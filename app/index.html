@@ -97,12 +97,12 @@
     </div>
     <div class="row">
       <!-- <div id="0" class="btn btn-default calc-button" data-bind="click: numberHandler">0</div> -->
-      <span id="0" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+      <span id="0" class="fa-stack fa-2x button-background" data-bind="click: display() !== 0 ? numberHandler : null">
         <i class="fa fa-square fa-stack-2x"></i>
         <strong class="fa-stack-1x button-text">0</strong>
       </span>
       <!-- <div id="." class="btn btn-default calc-button">.</div> -->
-      <span id="." class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+      <span id="." class="fa-stack fa-2x button-background" data-bind="click: decimalAllowed() ? numberHandler : null">
         <i class="fa fa-square fa-stack-2x"></i>
         <strong class="fa-stack-1x button-text">.</strong>
       </span>

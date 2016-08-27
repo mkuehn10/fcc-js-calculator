@@ -1,6 +1,7 @@
 /* global $ ko */
 
 $(function() {
+  var operators = ['+', '-', 'x', '/'];
 
   // var add = function(a, b) {
   //   return a + b;
@@ -30,16 +31,34 @@ $(function() {
     self.queue = [];
     self.display = ko.observable(0);
     self.result = ko.observable();
+    self.resultAllowed = ko.observable(false);
+    self.operatorAllowed = ko.observable(false);
 
     self.numberHandler = function(event, data) {
+      console.log(operators.indexOf(data.currentTarget.id));
+
+      if (operators.indexOf(data.currentTarget.id) == -1) {
+        self.operatorAllowed(true);
+      } else {
+        self.operatorAllowed(false);
+      }
       self.queue.push(data.currentTarget.id);
-      console.log(self.queue.join(''));
+
+      console.log(self.queue[self.queue.length - 1]);
+      //console.log(self.queue.join(''));
       self.display(self.queue.join(''));
     };
 
     self.equalHandler = function(event, data) {
-      console.log(eval(self.queue.join('')));
-      self.result(eval(self.queue.join('')));
+      //console.log(eval(self.queue.join('')));
+      self.result(eval(self.queue.join('')).toString().substring(0,9));
+      self.resultAllowed(true);
+    };
+
+    self.clearHandler = function() {
+      self.display(0);
+      self.queue = [];
+      self.resultAllowed(false);
     };
 
     // self.numberHandler = function(event, data) {

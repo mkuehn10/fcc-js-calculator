@@ -13,16 +13,52 @@ $icon-font-path: '../fonts/';
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  font-family: 'Orbitron', sans-serif;
 }
+
+.container {
+  width: 265px;
+}
+
+
 
 .calc-button {
   background-color: gray;
   height: 50px;
   width: 50px;
+  padding: 5px;
 }
 
 .row, .row .calc-button {
   display: inline;
+}
+
+.button-background {
+  color: black;
+}
+.button-text {
+  color: white;
+}
+.button-background:hover {
+  cursor: pointer;
+  color: gray;
+}
+
+.display {
+  background: gray;
+  display: inline-block;
+  width: 100%;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.result {
+  background: gray;
+  display: inline-block;
+  width: 100%;
+  font-size: 30px;
+  padding: 0px 10px;
+
 }
 
 @media screen and (min-width: 768px) {

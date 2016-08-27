@@ -12,6 +12,7 @@
   <!-- bower:css -->
   <!-- endbower -->
   <!-- endbuild -->
+  <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
@@ -23,32 +24,103 @@
     <![endif]-->
   <div class="container">
     <div class="row">
-      <div id="7" class="btn btn-default calc-button" data-bind="click: numberHandler">7</div>
-      <div id="8" class="btn btn-default calc-button" data-bind="click: numberHandler">8</div>
-      <div id="9" class="btn btn-default calc-button" data-bind="click: numberHandler">9</div>
-      <div id="divide" class="btn btn-primary calc-button">DIV</div>
+      <span id="C" class="fa-stack fa-2x button-background" data-bind="click: clearHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">C</strong>
+      </span>
     </div>
     <div class="row">
-      <div id="4" class="btn btn-default calc-button" data-bind="click: numberHandler">4</div>
-      <div id="5" class="btn btn-default calc-button" data-bind="click: numberHandler">5</div>
-      <div id="6" class="btn btn-default calc-button" data-bind="click: numberHandler">6</div>
-      <div id="multiply" class="btn btn-primary calc-button">MUL</div>
+      <!-- <div id="7" class="btn btn-default calc-button" data-bind="click: numberHandler">7</div> -->
+      <span id="7" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">7</strong>
+      </span>
+      <!-- <div id="8" class="btn btn-default calc-button" data-bind="click: numberHandler">8</div> -->
+      <span id="8" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">8</strong>
+      </span>
+      <!-- <div id="9" class="btn btn-default calc-button" data-bind="click: numberHandler">9</div> -->
+      <span id="9" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">9</strong>
+      </span>
+      <!-- <div id="divide" class="btn btn-primary calc-button">DIV</div> -->
+      <span id="/" class="fa-stack fa-2x button-background" data-bind="click: operatorAllowed() ? numberHandler : null">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">/</strong>
+      </span>
     </div>
     <div class="row">
-      <div id="1" class="btn btn-default calc-button" data-bind="click: numberHandler">1</div>
-      <div id="2" class="btn btn-default calc-button" data-bind="click: numberHandler">2</div>
-      <div id="3" class="btn btn-default calc-button" data-bind="click: numberHandler">3</div>
-      <div id="-" class="btn btn-primary calc-button" data-bind="click: numberHandler">SUB</div>
+      <!-- <div id="4" class="btn btn-default calc-button" data-bind="click: numberHandler">4</div> -->
+      <span id="4" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">4</strong>
+      </span>
+      <!-- <div id="5" class="btn btn-default calc-button" data-bind="click: numberHandler">5</div> -->
+      <span id="5" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">5</strong>
+      </span>
+      <!-- <div id="6" class="btn btn-default calc-button" data-bind="click: numberHandler">6</div> -->
+      <span id="6" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">6</strong>
+      </span>
+      <!-- <div id="multiply" class="btn btn-primary calc-button">MUL</div> -->
+      <span id="*" class="fa-stack fa-2x button-background" data-bind="click: operatorAllowed() ? numberHandler : null">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">*</strong>
+      </span>
     </div>
     <div class="row">
-      <div id="0" class="btn btn-default calc-button" data-bind="click: numberHandler">0</div>
-      <div id="." class="btn btn-default calc-button">.</div>
-      <div id="equal" class="btn btn-default calc-button" data-bind="click: equalHandler">=</div>
-      <div id="+" class="btn btn-primary calc-button" data-bind="click: numberHandler">ADD</div>
+      <!-- <div id="1" class="btn btn-default calc-button" data-bind="click: numberHandler">1</div> -->
+      <span id="1" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">1</strong>
+      </span>
+      <span id="2" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">2</strong>
+      </span>
+      <!-- <div id="2" class="btn btn-default calc-button" data-bind="click: numberHandler">2</div> -->
+      <!-- <div id="3" class="btn btn-default calc-button" data-bind="click: numberHandler">3</div> -->
+      <span id="3" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">3</strong>
+      </span>
+      <!-- <div id="-" class="btn btn-primary calc-button" data-bind="click: numberHandler">SUB</div> -->
+      <span id="-" class="fa-stack fa-2x button-background" data-bind="click: operatorAllowed() ? numberHandler : null">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">-</strong>
+      </span>
     </div>
-
-    <p data-bind="text: display"></p>
-    <p data-bind="text: result"></p>
+    <div class="row">
+      <!-- <div id="0" class="btn btn-default calc-button" data-bind="click: numberHandler">0</div> -->
+      <span id="0" class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">0</strong>
+      </span>
+      <!-- <div id="." class="btn btn-default calc-button">.</div> -->
+      <span id="." class="fa-stack fa-2x button-background" data-bind="click: numberHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">.</strong>
+      </span>
+      <!-- <div id="equal" class="btn btn-default calc-button" data-bind="click: equalHandler">=</div> -->
+      <span id="=" class="fa-stack fa-2x button-background" data-bind="click: equalHandler">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">=</strong>
+      </span>
+      <!-- <div id="+" class="btn btn-primary calc-button" data-bind="click: operatorAllowed() ? numberHandler : null">ADD</div> -->
+      <span id="+" class="fa-stack fa-2x button-background" data-bind="click: operatorAllowed() ? numberHandler : null">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <strong class="fa-stack-1x button-text">+</strong>
+      </span>
+    </div>
+    <div class="row">
+      <div class="display text-right" data-bind="text: display"></div>
+      <div class="result text-right" data-bind="visible: resultAllowed, text: result"></div>
+    </div>
   </div>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
@@ -73,6 +145,7 @@
   <script src="/bower_components/knockout/dist/knockout.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
+  <script src="https://use.fontawesome.com/7e16f9c758.js"></script>
   <!-- build:js scripts/plugins.js -->
   <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
   <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>

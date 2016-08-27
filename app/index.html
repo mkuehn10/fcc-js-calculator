@@ -38,16 +38,17 @@
       <div id="1" class="btn btn-default calc-button" data-bind="click: numberHandler">1</div>
       <div id="2" class="btn btn-default calc-button" data-bind="click: numberHandler">2</div>
       <div id="3" class="btn btn-default calc-button" data-bind="click: numberHandler">3</div>
-      <div id="subtract" class="btn btn-primary calc-button">SUB</div>
+      <div id="-" class="btn btn-primary calc-button" data-bind="click: numberHandler">SUB</div>
     </div>
     <div class="row">
       <div id="0" class="btn btn-default calc-button" data-bind="click: numberHandler">0</div>
       <div id="." class="btn btn-default calc-button">.</div>
-      <div id="equal" class="btn btn-default calc-button">=</div>
-      <div id="add" class="btn btn-primary calc-button">ADD</div>
+      <div id="equal" class="btn btn-default calc-button" data-bind="click: equalHandler">=</div>
+      <div id="+" class="btn btn-primary calc-button" data-bind="click: numberHandler">ADD</div>
     </div>
 
     <p data-bind="text: display"></p>
+    <p data-bind="text: result"></p>
   </div>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>

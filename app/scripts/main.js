@@ -29,26 +29,38 @@ $(function() {
 
     self.queue = [];
     self.display = ko.observable(0);
+    self.result = ko.observable();
 
     self.numberHandler = function(event, data) {
-      //console.log(event);
-      //console.log(parseInt(data.currentTarget.id));
-      self.queue.push(parseInt(data.currentTarget.id));
-      self.parseNumber();
+      self.queue.push(data.currentTarget.id);
+      console.log(self.queue.join(''));
+      self.display(self.queue.join(''));
     };
 
-    self.parseNumber = function() {
-      //console.log("Parsing");
-      var powerOfTen = self.queue.length - 1;
-      var currentNumber = 0;
-      self.queue.forEach(function(number) {
-        currentNumber += number * Math.pow(10, powerOfTen);
-
-        powerOfTen -= 1;
-      });
-      //console.log(currentNumber);
-      self.display(currentNumber);
+    self.equalHandler = function(event, data) {
+      console.log(eval(self.queue.join('')));
+      self.result(eval(self.queue.join('')));
     };
+
+    // self.numberHandler = function(event, data) {
+    //   //console.log(event);
+    //   //console.log(parseInt(data.currentTarget.id));
+    //   self.queue.push(parseInt(data.currentTarget.id));
+    //   self.parseNumber();
+    // };
+
+    // self.parseNumber = function() {
+    //   //console.log("Parsing");
+    //   var powerOfTen = self.queue.length - 1;
+    //   var currentNumber = 0;
+    //   self.queue.forEach(function(number) {
+    //     currentNumber += number * Math.pow(10, powerOfTen);
+
+    //     powerOfTen -= 1;
+    //   });
+    //   //console.log(currentNumber);
+    //   self.display(currentNumber);
+    // };
   };
 
   var viewModel = new ViewModel();
